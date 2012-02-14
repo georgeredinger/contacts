@@ -1,14 +1,16 @@
+require 'pry'
 dir = File.dirname(__FILE__)
-require "#{dir}/../test_helper"
+require_relative "../test_helper.rb"
 
 class TestAccountsTest < ContactImporterTestCase
   def test_test_accounts_loads_data_from_example_accounts_file
-    account = TestAccounts.load(File.dirname(__FILE__) + "/../example_accounts.yml")[:gmail]
-    
+  
+    accounts_yml_file = File.dirname(__FILE__) + "/accounts.yml"
+    account = TestAccounts.load(accounts_yml_file)[:gmail]
     assert_equal :gmail, account.type
-    assert_equal "<changeme>", account.username
-    assert_equal "<changeme>", account.password
-    assert_equal [["FirstName1 LastName1", "firstname1@example.com"], ["FirstName2 LastName2", "firstname2@example.com"]], account.contacts
+    assert_equal "brs.with.leads@gmail.com", account.username
+    assert_equal "not2Secure", account.password
+    assert_equal [["Marton", "meza@meza.hu"]], account.contacts
   end
   
   def test_test_accounts_blows_up_if_file_doesnt_exist

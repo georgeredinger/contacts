@@ -1,10 +1,10 @@
 require 'rubygems'
 require 'rake'
 require 'rake/testtask'
-require 'rake/rdoctask'
-require 'rake/gempackagetask'
-require 'rake/contrib/rubyforgepublisher'
-require 'lib/contacts'
+#require 'rdoc/task'
+require 'rubygems/package_task'
+#require 'rake/contrib/rubyforgepublisher'
+require_relative 'lib/contacts'
 
 PKG_VERSION = Contacts::VERSION
 
@@ -30,13 +30,13 @@ task :console do
 end
 
 # Genereate the RDoc documentation
-desc "Create documentation"
-Rake::RDocTask.new("doc") { |rdoc|
-  rdoc.title = "Contact List - ridiculously easy contact list information from various providers including Yahoo, Gmail, and Hotmail"
-  rdoc.rdoc_dir = 'doc'
-  rdoc.rdoc_files.include('README')
-  rdoc.rdoc_files.include('lib/**/*.rb')
-}
+#desc "Create documentation"
+#Rake::RDocTask.new("doc") { |rdoc|
+#  rdoc.title = "Contact List - ridiculously easy contact list information from various providers including Yahoo, Gmail, and Hotmail"
+#  rdoc.rdoc_dir = 'doc'
+#  rdoc.rdoc_files.include('README')
+#  rdoc.rdoc_files.include('lib/**/*.rb')
+#}
 
 # Genereate the package
 spec = Gem::Specification.new do |s|
@@ -76,10 +76,10 @@ spec = Gem::Specification.new do |s|
   s.homepage = "http://rubyforge.org/projects/contacts"
 end
 
-Rake::GemPackageTask.new(spec) do |pkg|
-  pkg.need_zip = true
-  pkg.need_tar = true
-end
+#Rake::GemPackageTask.new(spec) do |pkg|
+#  pkg.need_zip = true
+#  pkg.need_tar = true
+#end
 
 desc "Report code statistics (KLOCs, etc) from the application"
 task :stats do
@@ -89,3 +89,4 @@ task :stats do
     ["Units", "test"]
   ).to_s
 end
+

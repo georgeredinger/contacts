@@ -18,7 +18,6 @@ class TestAccounts
   
   def self.load(file = File.dirname(__FILE__) + "/accounts.yml")
     raise "/test/accounts.yml file not found, please create, see /test/example_accounts.yml for information" unless File.exist?(file)
-    
     accounts = {}
     YAML::load(File.open(file)).each do |type, contents|
       contacts = contents["contacts"].collect {|contact| [contact["name"], contact["email_address"]]}
@@ -29,3 +28,4 @@ class TestAccounts
 
   Account = Struct.new :type, :username, :password, :contacts
 end
+

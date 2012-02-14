@@ -1,0 +1,31 @@
+gmail:
+  username: 'brs.with.leads@gmail.com'
+  password: 'not2Secure'
+  contacts: 
+    -
+      name: "Marton"
+      email_address: "meza@meza.hu"
+yahoo:
+  username: 'brstester@yahoo.co.uk'
+  password: 'william'
+  contacts: 
+    -
+      name: "Austen Moore"
+      email_address: "austen@talktwenty1.com"
+    -
+      name: "Paul Pankhurst"
+      email_address: "paul.pankhurst@talktwenty1.com"
+hotmail:
+  username: 'brett.sterling1970@hotmail.com'
+  password: '4trading'
+  contacts: 
+    -
+      name: "FirstName1 LastName1"
+      email_address: "firstname1@example.com"
+    -
+      name: "FirstName2 LastName2"
+      email_address: "firstname2@example.com"
+
+
+
+
